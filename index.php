@@ -90,7 +90,7 @@ if(isset($_SESSION["controlLogin"]))
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					¿No tienes aún cuenta?<a href="#">Registrate</a>
+					¿No tienes aún cuenta?<a href="registro.php">Registrate</a>
 				</div>
 				<div class="d-flex justify-content-center">
 					<a href="#">¿Olvidaste tu contraseña?</a>
