@@ -31,7 +31,11 @@ if(isset($_SESSION["controlLogin"]))
 								exit("Sesión BLOQUEADA. Contacta con el adminsitrador.");
 							}
 						}
-					}
+		if(isset($_POST["btnAceptarRegistro"]))
+		{
+			include("registro.php");
+		}
+					}// AQUÍ DENTRO VA LA LOGICA DE LA  SESION
 ?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -90,7 +94,7 @@ if(isset($_SESSION["controlLogin"]))
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					¿No tienes aún cuenta?<a href="registro.php">Registrate</a>
+					¿No tienes aún cuenta?<a href="vista_registro.php">Registrate</a>
 				</div>
 				<div class="d-flex justify-content-center">
 					<a href="#">¿Olvidaste tu contraseña?</a>

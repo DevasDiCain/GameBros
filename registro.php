@@ -1,71 +1,73 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Game Bros</title>
-
+<?php
    
-	<!--Bootsrap 4 CDN-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
-    <!--Fontawesome CDN-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	
+	$error_user=true;
+	$error_pass=true;
+	$error_name=true;
+	$error_mail=true;
+	if(isset($_POST['btnvolver']))
+	{
+		header("Location: index.php");
+		exit();
+	}
+	if(isset($_POST['btnAceptarRegistro']))
+	{
+		
+		$usuario = clean($conexion,$_POST["usuario"]);
+		$pass = clean($conexion,$_POST["contrasenia"]);
+		$name = clean($conexion,$_POST["name"]);
+		$mail = clean($conexion,$_POST["mail"]);
 
-	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="css/index.css"/>
-</head>
-<body>
-<div class="container">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-			<div class="card-header">
-				<h3>Registrate</h3>
-    
-			</div>
-			<div class="card-body">
-				<form>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="Usuario">
-						
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" placeholder="Contraseña">
-					</div>
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-address-book"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="Nombre completo">
-						
-					</div>
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-envelope"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="Correo Electrónico">
-						
-					</div>
-				</form>
-                <div class="form-group" >
-						<form action="index.php" method="POST"><input type="submit" value="Volver" class="btn float-left login_btn" ></form>
-					</div>
-					<div class="form-group">
-                    <form action="login.php" method="POST"><input type="submit" value="Entrar" class="btn float-right login_btn"></form>
-					</div>
-			</div>
+
+		$error_user=($usuario=="" || repetido_n("usuario",$usuario,$conexion) || !control_usuario($usuario));
+		$error_pass=($pass=="" || !control_usuario($pass));
+		$error_name=($name=="" || !control_usuario($name));
+		$error_mail= ($mail=="" || repetido_n("email",$mail,$conexion));
+
+		$error= (!$error_user && !$error_pass && !$error_name  && !$error_mail);
+     
+		if($error)
+		{
+	
+			$nueva_sal = generarSal();
+			$hash_registro=generarHash($pass.$nueva_sal);
+
+
+			$consulta="INSERT INTO usuarios (usuario,password,nombre,email,sal) VALUES ('".$usuario."','$hash_registro','".$name."','".$mail."','$nueva_sal')";
 			
-		</div>
-	</div>
-</div>
-</body>
-</html>
+			if($resultado = mysqli_query($conexion,$consulta))
+			{
+				
+                $_SESSION['usuario']=$usuario;
+                $_SESSION['clave']=$hash_registro;
+                $_SESSION['sesion']= time();
+                $_SESSION['userAgent'] = $_SERVER['HTTP_USER_AGENT'];
+                $_SESSION['userIp'] = getUserIP();
+                header("Location: ./index.php?5");
+				
+			}else
+			{
+			  $error="Error al realizar la consulta";
+			  mysqli_close($conexion);
+			  die($error);
+
+			}
+		}
+        else
+        {
+            header("Location: vista_registro.php?error=9"); 
+        }
+	
+	
+	
+
+}
+else
+{
+	session_name("bd_gameBros");
+	session_start();
+	$_SESSION['error']="restringido";
+	header("Location: index.php");
+	exit;
+}
+?>

@@ -1,0 +1,21 @@
+﻿Paso a paso realización de GameBros.
+
+
+Se da comienzo al proyecto a partir de una plantilla de Bootstrap.
+
+
+* Creación landing page con CSS.
+Nos referimos a la página principal, donde mediante un enlace o botón la persona llega a nuestra página web.
+
+
+* Configuración, conexión a la base de datos y cierre de sesión del usuario. (Provisional).
+Aquí tenemos toda la configuración de nuestra página, junto a la conexión a la base de datos siempre con la máxima seguridad utilizando cookies para cada sesión del usuario. Para cada sesión iniciada se genera un ID completamente distinto al de la última sesión iniciada. Realizaremos siempre el cierre de sesión del usuario logueado.
+
+
+* Control de IPs mediante control de sesiones.
+Mediante la creación de listas blancas y negras prevenimos los ataques por fuerza bruta en nuestra web, ya que controlamos el número de inicios de sesión por usuario y en caso de sobrepasarse de 5 se bloquea la dirección IP durante un tiempo determinado.
+
+
+* Realización de bibliotecas de funciones personales (RESTFUL y SEGURIDAD).
+En este apartado tendremos todas las funciones personales que necesitaremos para realizar nuestra web, de manera organizada.
+Cabe destacar que se han creado funciones para impedir la intrusión de malware a través de archivos y se realiza comprobación de extensiones de archivos.
