@@ -1,3 +1,38 @@
+<?php
+require("admin/conex_bd.php");
+require("admin/funciones.php");
+
+session_name("bd_gameBros");
+session_start();
+
+if($conexion= conectar())
+{
+// BLOQUEO DE IP SEGÚN LISTA NEGRA
+$ip_usuario = getUserIP();
+$consulta_lista_negra = "SELECT * FROM lista_negra WHERE ip = '$ip_usuario'";
+if($resultado_lista_negra = mysqli_query($conexion,$consulta_lista_negra))
+{
+	if(mysqli_num_rows($resultado_lista_negra) > 0)
+	{
+		exit("Lo sentimos su IP se encuentra baneada actualmente");
+	}
+}
+mysqli_set_charset($conexion,'utf8');
+// CONTROL DE ATAQUE POR DICCIONARIO O FUERZA BRUTA
+if(isset($_SESSION["controlLogin"]))
+						{
+							if($_SESSION["controlLogin"] == 5)
+							{
+								$ip_desconfiable = getUserIP();
+								$insert_ip_negra = "INSERT INTO lista_negra (ip) VALUES ('$ip_desconfiable')";
+								mysqli_query($conexion,$insert_ip_negra);
+								error_log("ALERTA: Posible Ataque",3,'rodriguezfernandezjose20@ieskursaal.com');
+								unset($_SESSION["controlLogin"]);
+								exit("Sesión BLOQUEADA. Contacta con el adminsitrador.");
+							}
+						}
+					}
+?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
