@@ -43,7 +43,7 @@
                 $_SESSION['sesion']= time();
                 $_SESSION['userAgent'] = $_SERVER['HTTP_USER_AGENT'];
                 $_SESSION['userIp'] = getUserIP();
-                header("Location: ./index.php?5");
+                header("Location: ./index.php?registrado");
 				
 			}else
 			{
@@ -55,7 +55,7 @@
 		}
         else
         {
-            header("Location: vista_registro.php?error=9"); 
+            header("Location: vistas/vista_registro.php?error=9"); 
         }
 	
 	
