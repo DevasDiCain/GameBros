@@ -31,6 +31,14 @@
 						</div>	
 						<?php
 					}
+					if($_GET["error"]==8)
+					{
+						?> 
+						<div class="alert alert-danger" >
+  							<strong>¡Error!</strong>Este usuario o email ya se encuentra en la base de datos <strong>¡Error!</strong>
+						</div>	
+						<?php
+					}
 				}
 			?>
 	<div class="d-flex justify-content-center h-100">
