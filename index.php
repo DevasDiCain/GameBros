@@ -228,7 +228,7 @@ if(isset($_SESSION["error"]))
 						<input type="password"  name="password" class="form-control" placeholder="Contraseña">
 					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox">Recuerdame
+						<input type="checkbox" name="recordarPass">Recuerdame
 					</div>
 					<div class="form-group">
 						<input type="submit" name="btnEntrar" value="Entrar" class="btn float-right login_btn">

@@ -7,7 +7,7 @@
 
                 if($usuario=="" || $clave=="")
                 {
-                    $_SESSION['error1']="vacio";
+                    $_SESSION['error']="camposVacios";
                     header("Location: index.php");
                     exit;
                 }

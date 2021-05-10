@@ -23,7 +23,7 @@ require_once("../admin/funciones.php");
 </head>
 <body>
 <div class="container">
-<?php 
+			<?php 
 
 				if(isset($_GET["error"]))
 					mostrar_error($_GET["error"]);
