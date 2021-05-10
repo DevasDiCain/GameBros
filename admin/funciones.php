@@ -377,9 +377,9 @@
 						
 								<div class="col-lg-4 col-md-6 mb-4">
 									<div class="card h-100">
-										<a href="#!"><img class="card-img-top" src="<?php echo $fila["portada"];?>" alt="..." /></a>
+										<a href="<?php echo $fila["portada"];?>"><img class="card-img-top" src="<?php echo $fila["portada"];?>" alt="..." /></a>
 										<div class="card-body">
-											<h4 class="card-title"><a href="#!"><?php echo $fila["titulo"];?></a></h4>
+											<h4 class="card-title"><a href="<?php echo $fila["p_oficial"];?>"><?php echo $fila["titulo"];?></a></h4>
 											<h5><?php echo $fila["precio"];?>$</h5>
 											<p class="card-text"><?php echo $fila["informacion"];?></p>
 										</div>
