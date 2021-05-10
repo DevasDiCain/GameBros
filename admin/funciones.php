@@ -362,3 +362,42 @@
 		# Regresamos ese valor, y listo (sí, ya sé que se podría regresar $resultado->success)
 		return $pruebaPasada;
 	}
+
+	function mostrarJuegos($categoria,$conex)
+	{
+		$consulta="SELECT * FROM juegos WHERE categoria = '$categoria'";
+
+				if($resultado=mysqli_query($conex,$consulta))
+				{
+					if(mysqli_num_rows($resultado)>0)
+					{
+						while($fila= mysqli_fetch_assoc($resultado))
+						{	
+							?>
+						
+								<div class="col-lg-4 col-md-6 mb-4">
+									<div class="card h-100">
+										<a href="#!"><img class="card-img-top" src="<?php echo $fila["portada"];?>" alt="..." /></a>
+										<div class="card-body">
+											<h4 class="card-title"><a href="#!"><?php echo $fila["titulo"];?></a></h4>
+											<h5><?php echo $fila["precio"];?>$</h5>
+											<p class="card-text"><?php echo $fila["informacion"];?></p>
+										</div>
+										<div class="card-footer"><small class="text-muted">★ ★ ★ ★ ☆</small></div>
+									</div>
+                      		</div>
+							<?php
+						}
+						mysqli_free_result($resultado);
+						
+					}
+					
+					
+				}
+				else
+				{
+					$error="Imposible realizar la consulta. Error número: ".mysqli_errno($conex). ":".mysqli_error($conex);
+					mysqli_close($conex);
+					die($error);	
+				}
+	}
