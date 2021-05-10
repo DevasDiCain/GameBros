@@ -179,34 +179,72 @@
 			switch($error)
 				{
 					case 'restringido':error_log("Accediendo a una zona restringida");
-										echo "<span style='color:red;'>Zona restringida</span>";
+							?> 
+							<div class="alert alert-danger" >
+								<strong>¡Error!</strong>Zona restringida <strong>¡Error!</strong>
+							</div>	
+							<?php
 						break;
 					case 'malUsuario': error_log("Login erróneo");
-										echo "<span style='color:red;'>Usuario o contraseña inválida</span>";
+							?> 
+							<div class="alert alert-danger" >
+								<strong>¡Error!</strong>Usuario o contraseña inválidos <strong>¡Error!</strong>
+							</div>	
+							<?php
 										if(!isset($_SESSION["controlLogin"]))
 											$_SESSION["controlLogin"]=0;
 										else
 											$_SESSION["controlLogin"]++;
 						break;
 					case 'tiempo': error_log("Sesión caducada");
-									echo "<span style='color:red;'>Sesión caducada</span>";
-						break;
-					case 'comentario': error_log("Intento comentario sin permiso");
-										echo "<span style='color:red;'>Para comentar debes loguearte</span>";
+								?> 
+								<div class="alert alert-danger" >
+									<strong>¡Error!</strong>Sesión Caducada <strong>¡Error!</strong>
+								</div>	
+								<?php
 						break;
 					case 'moverImagen': error_log("Error al mover la imagen a la carpeta destino");
-										echo "<span style='color:red;'>Error al mover la imagen a la carpeta destino</span>";
+								?> 
+								<div class="alert alert-danger" >
+									<strong>¡Error!</strong>Error al mover la imagen a la carpeta destino <strong>¡Error!</strong>
+								</div>	
+								<?php
 						break;
 					case 'roboCookie':error_log("Intento de robo de cookie");
-								    	echo "<span style='color:red;'>Intento de robo de cookie</span>";
+								?> 
+								<div class="alert alert-danger" >
+									<strong>¡Error!</strong>Intento de robo de cookie <strong>¡Error!</strong>
+								</div>	
+								<?php
 						break;
 					case 'cookie_expirada':error_log("La cookie ha expirado");
-						echo "<span style='color:red;'>Tu cookie ha expirado</span>";
+								?> 
+								<div class="alert alert-danger" >
+									<strong>¡Error!</strong>Tu cookie ha expirado <strong>¡Error!</strong>
+								</div>	
+								<?php
 						break;
 					case 'contrasenaEnviada':error_log("Recuperación de contrasenia inválido");
-						echo "<span style='color:red;'>Tu contrasenia ha sido enviada</span>";
+								?> 
+								<div class="alert alert-danger" >
+									<strong>¡Error!</strong>Tu contraseña ha sido enviada<strong>¡Error!</strong>
+								</div>	
+								<?php
 						break;
-						
+					case 'camposVacios': error_log("Campos vacíos registro");
+							?> 
+							<div class="alert alert-danger" >
+								<strong>¡Error!</strong>No puede haber campos vacíos <strong>¡Error!</strong>
+							</div>	
+							<?php
+						break;
+					case 'repetido': error_log("Campos vacíos registro");
+							?> 
+							<div class="alert alert-danger" >
+								<strong>¡Error!</strong>Este usuario o email ya se encuentra en la base de datos <strong>¡Error!</strong>
+							</div>	
+							<?php
+						break;
 					default: error_log("Error desconocido");
 						break;
 				}

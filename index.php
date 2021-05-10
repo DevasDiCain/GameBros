@@ -197,6 +197,11 @@ if(isset($_SESSION["controlLogin"]))
 </head>
 <body>
 <div class="container">
+<?php 
+
+if(isset($_SESSION["error"]))
+	mostrar_error($_SESSION["error"]);
+?>
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">

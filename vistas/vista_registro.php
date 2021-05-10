@@ -1,3 +1,6 @@
+<?php
+require_once("../admin/funciones.php");
+?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -21,25 +24,9 @@
 <body>
 <div class="container">
 <?php 
+
 				if(isset($_GET["error"]))
-				{
-					if($_GET["error"]==9)
-					{
-						?> 
-						<div class="alert alert-danger" >
-  							<strong>¡Error!</strong>No puede haber campos vacíos <strong>¡Error!</strong>
-						</div>	
-						<?php
-					}
-					if($_GET["error"]==8)
-					{
-						?> 
-						<div class="alert alert-danger" >
-  							<strong>¡Error!</strong>Este usuario o email ya se encuentra en la base de datos <strong>¡Error!</strong>
-						</div>	
-						<?php
-					}
-				}
+					mostrar_error($_GET["error"]);
 			?>
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">

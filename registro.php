@@ -1,6 +1,6 @@
 <?php
    
-	
+
 	$error_user=true;
 	$error_pass=true;
 	$error_name=true;
@@ -56,9 +56,9 @@
         else
         {//CONTROL DE ERROR REGISTRO
 			if($usuario == "" || $pass == "" || $name == "" || $mail == "")
-				header("Location: vistas/vista_registro.php?error=9"); 
+				header("Location: vistas/vista_registro.php?error=camposVacios"); 
 			if(repetido_n("usuario",$usuario,$conexion) || repetido_n("email",$mail,$conexion))
-				header("Location: vistas/vista_registro.php?error=8"); 
+				header("Location: vistas/vista_registro.php?error=repetido"); 
            
         }
 	

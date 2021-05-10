@@ -76,7 +76,7 @@
 			}else{
                 require("funciones.php");
                 require("conex_bd.php");
-                session_name("bd_blog");
+                session_name("bd_gameBros");
                 session_start();
                
                 if($conexion= conectar())
