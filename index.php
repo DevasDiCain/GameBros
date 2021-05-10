@@ -31,10 +31,7 @@ if(isset($_SESSION["controlLogin"]))
 								exit("Sesión BLOQUEADA. Contacta con el adminsitrador.");
 							}
 						}
-		if(isset($_POST["btnAceptarRegistro"]))
-		{
-			include("registro.php");
-		}
+	
 			
 		if(isset($_SESSION['usuario']) && isset($_SESSION['clave']) && isset($_SESSION['sesion']))
 		{
@@ -115,6 +112,10 @@ if(isset($_SESSION["controlLogin"]))
 			 
 		}else
 		 {
+			if(isset($_POST["btnAceptarRegistro"]))
+			{
+				include("registro.php");
+			}
 			 // CONTOL DE COOKIE
 			 if(isset($_COOKIE["recordarPass"]))
 			 {
@@ -168,7 +169,7 @@ if(isset($_SESSION["controlLogin"]))
 			
 				 if(isset($_POST['btnEntrar']))
 				 {
-					 require("admin/login_usuario.php");
+					 require("admin/login.php");
 				 }
 				 
 	// AQUÍ DENTRO VA LA LOGICA DE LA  SESION
@@ -207,25 +208,25 @@ if(isset($_SESSION["controlLogin"]))
 				</div>
 			</div>
 			<div class="card-body">
-				<form>
+				<form action="index.php" method="POST">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Usuario">
+						<input type="text" name="user" class="form-control" placeholder="Usuario">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="Contraseña">
+						<input type="password"  name="password" class="form-control" placeholder="Contraseña">
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Recuerdame
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Entrar" class="btn float-right login_btn">
+						<input type="submit" name="btnEntrar" value="Entrar" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
