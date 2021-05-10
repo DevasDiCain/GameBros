@@ -54,10 +54,9 @@
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active"><img class="d-block img-fluid" src="https://rolgratis.com/images/204.jpg" alt="Hecatombe" /></div>
-                            <div class="carousel-item"><img class="d-block img-fluid" src="https://i.ytimg.com/vi/hWjve2VVKe4/maxresdefault.jpg" alt="Mundo Mágico" /></div>
-                            <div class="carousel-item"><img class="d-block img-fluid" src="https://img.milanuncios.com/fg/3700/20/370020355_1.jpg?VersionId=ycq3LuLPnDUzN91RQn3jJVNuktxuneVC" alt="Imperium" /></div>
-                            
+                        <div class="carousel-item active"><img class="d-block img-fluid" src="https://rolgratis.com/images/204.jpg" alt="Hecatombe" /></div>
+                            <div class="carousel-item"><img class="d-block img-fluid" src="https://gaelcon.com/wp-content/uploads/2019/10/lordoftherings.png" alt="Mundo Mágico" /></div>
+                            <div class="carousel-item"><img class="d-block img-fluid" src="https://3.bp.blogspot.com/-kuucjOv5IZ0/V7-93DWIAHI/AAAAAAAADwI/UJ5krtumgLUp8Z-L-flJa_1JQe6pyoeEQCLcB/s1600/Sin%2Bt%25C3%25ADtulo.png" alt="Imperium" /></div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -97,8 +96,8 @@
                         </ol>
                         <div class="carousel-inner" role="listbox">
                             <div class="carousel-item active"><img class="d-block img-fluid" src="https://rolgratis.com/images/204.jpg" alt="Hecatombe" /></div>
-                            <div class="carousel-item"><img class="d-block img-fluid" src="https://i.ytimg.com/vi/hWjve2VVKe4/maxresdefault.jpg" alt="Mundo Mágico" /></div>
-                            <div class="carousel-item"><img class="d-block img-fluid" src="https://img.milanuncios.com/fg/3700/20/370020355_1.jpg?VersionId=ycq3LuLPnDUzN91RQn3jJVNuktxuneVC" alt="Imperium" /></div>
+                            <div class="carousel-item"><img class="d-block img-fluid" src="https://gaelcon.com/wp-content/uploads/2019/10/lordoftherings.png" alt="Mundo Mágico" /></div>
+                            <div class="carousel-item"><img class="d-block img-fluid" src="https://3.bp.blogspot.com/-kuucjOv5IZ0/V7-93DWIAHI/AAAAAAAADwI/UJ5krtumgLUp8Z-L-flJa_1JQe6pyoeEQCLcB/s1600/Sin%2Bt%25C3%25ADtulo.png" alt="Imperium" /></div>
                             
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -139,10 +138,9 @@
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active"><img class="d-block img-fluid" src="https://rolgratis.com/images/204.jpg" alt="Hecatombe" /></div>
-                            <div class="carousel-item"><img class="d-block img-fluid" src="https://i.ytimg.com/vi/hWjve2VVKe4/maxresdefault.jpg" alt="Mundo Mágico" /></div>
-                            <div class="carousel-item"><img class="d-block img-fluid" src="https://img.milanuncios.com/fg/3700/20/370020355_1.jpg?VersionId=ycq3LuLPnDUzN91RQn3jJVNuktxuneVC" alt="Imperium" /></div>
-                            
+                        <div class="carousel-item active"><img class="d-block img-fluid" src="https://rolgratis.com/images/204.jpg" alt="Hecatombe" /></div>
+                            <div class="carousel-item"><img class="d-block img-fluid" src="https://gaelcon.com/wp-content/uploads/2019/10/lordoftherings.png" alt="Mundo Mágico" /></div>
+                            <div class="carousel-item"><img class="d-block img-fluid" src="https://3.bp.blogspot.com/-kuucjOv5IZ0/V7-93DWIAHI/AAAAAAAADwI/UJ5krtumgLUp8Z-L-flJa_1JQe6pyoeEQCLcB/s1600/Sin%2Bt%25C3%25ADtulo.png" alt="Imperium" /></div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
