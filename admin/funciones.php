@@ -387,7 +387,7 @@
 										<a href="<?php echo $fila["portada"];?>"><img class="card-img-top" src="<?php echo $fila["portada"];?>" alt="..." /></a>
 										<div class="card-body">
 											<h4 class="card-title"><a href="<?php echo $fila["p_oficial"];?>"><?php echo $fila["titulo"];?></a></h4> 
-											<h5><?php echo $fila["precio"];?>$<a href="index.php?edit=true"><i class="fas fa-edit" style="margin-left:9em;font-size:0.7em;"></i></a><a href="index.php?delete=true"><i style="margin-left:1em;font-size:0.7em;" class="fas fa-trash-alt"></i></a></h5>
+											<h5><?php echo $fila["precio"];?>$<a href="index.php?edit=<?php echo $fila["id_juego"];?>"><i class="fas fa-edit" style="margin-left:9em;font-size:0.7em;"></i></a><a href="index.php?delete=<?php echo $fila["id_juego"];?>"><i style="margin-left:1em;font-size:0.7em;" class="fas fa-trash-alt"></i></a></h5>
 											<p class="card-text"><?php echo $fila["informacion"];?></p>
 										</div>
 										<div class="card-footer"><small class="text-muted">★ ★ ★ ★ ☆</small></div>

@@ -45,6 +45,69 @@
         }
 	
     }
+    if(isset($_POST["editarJuego"]))
+    {
+        $nuevo_titulo = clean($conexion,$_POST["nuevo_titulo"]);
+        $nuevo_precio = clean($conexion,$_POST["nuevo_precio"]);
+        $nueva_sinopsis = clean($conexion,$_POST["nueva_sinopsis"]);
+        $nuevo_genero = clean($conexion,$_POST["nuevo_genero"]);
+        $nueva_portada = clean($conexion,$_POST["nueva_portada"]);
+        $id_juego = clean($conexion,$_POST["editarJuego"]);
+
+        $error_titulo=true;
+        $error_precio=true;
+        $error_sinopsis=true;
+        $error_genero=true;
+        $error_portada=true;
+
+        $error_titulo=($nuevo_titulo=="");
+		$error_precio=($nuevo_precio=="" || $precio < 0);
+		$error_sinopsis=($nueva_sinopsis=="");
+		$error_genero= ($nuevo_genero=="");
+        $error_portada= ($nueva_portada =="");
+
+        $error= (!$error_portada && !$error_titulo && !$error_precio && !$error_sinopsis  && !$error_genero);
+     
+		if($error)
+		{
+            $consulta="UPDATE  juegos SET titulo = '$nuevo_titulo' , precio = '$nuevo_precio', informacion = '$nueva_sinopsis'  , categoria = '$nuevo_genero', portada = '$nueva_portada' WHERE id_juego='$id_juego'";
+			
+			if($resultado = mysqli_query($conexion,$consulta))
+                header("Location: index.php?editado=true");
+			else
+			{
+			  $error="Error al realizar la consulta";
+			  mysqli_close($conexion);
+			  die($error);
+
+			}
+        }
+        else
+        {//CONTROL DE ERROR AL INTRODUCIR JUEGO
+			if($titulo == "" || $precio == "" || $sinopsis == "" || $genero == "")
+				header("Location: index.php?error=camposVacios"); 
+            if($precio < 0)
+                header("Location: index.php?error=negativo");
+           
+        }
+	
+    }
+    if(isset($_POST["borrarJuego"]))
+    {
+        $id_juego = clean($conexion,$_POST["borrarJuego"]);
+
+        $consulta="DELETE FROM juegos WHERE id_juego='$id_juego'";
+
+        if($resultado = mysqli_query($conexion,$consulta))
+            header("Location: index.php?borrado=true");
+        else
+        {
+          $error="Error al realizar la consulta";
+          mysqli_close($conexion);
+          die($error);
+
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -260,7 +323,68 @@
                      </form>
                    <?php
                 }
+                elseif(isset($_GET["edit"]))
+                {
+                    $pre_consulta_edit = "SELECT * FROM juegos WHERE id_juego='".$_GET["edit"]."'";
+
+                        if($resultado=mysqli_query($conexion,$pre_consulta_edit))
+                        {
+                                if($fila= mysqli_fetch_assoc($resultado))
+                                {
+                                    ?> 
+                                    <form style="margin:8em; width:30em;" action="index.php" method="POST">
+                                         <div class="form-group">
+                                             <label for="titulo">Título</label>
+                                             <input type="text" name="nuevo_titulo" class="form-control" id="titulo" aria-describedby="titulo" value="<?php echo $fila["titulo"];?>">
+                                         </div>
+                                         <div class="form-group">
+                                             <label for="precio">Precio</label>
+                                             <input type="number"  name="nuevo_precio" class="form-control" id="precio" value="<?php echo $fila["precio"];?>">
+                                             <small id="emailHelp" class="form-text text-muted">En dólares $$</small>
+                                         </div>
+                                 
+                                         <div class="form-group">
+                                             <label for="sinopsis">Sinopsis</label>
+                                             <textarea name="nueva_sinopsis" class="form-control" id="sinopsis" rows="3"><?php echo $fila["informacion"];?></textarea>
+                                         </div>
+                                         <div class="form-group">
+                                             <label for="portada">Portada</label>
+                                             <input type="text" name="nueva_portada" class="form-control" id="portada" aria-describedby="portada" value="<?php echo $fila["portada"];?>">
+                                             <small id="portada" class="form-text text-muted">Añadir URL. Tamaño 700x400</small>
+                                         </div>
+                                         <div class="form-group">
+                                             <select name="nuevo_genero" class="form-control form-control-lg">
+                                                 <option <?php if($fila["categoria"]=="ROL") echo "selected";?>>ROL</option>
+                                                 <option <?php if($fila["categoria"]=="MMORPG") echo "selected";?>>MMORPG</option>
+                                                 <option <?php if($fila["categoria"]=="SHOOTER") echo "selected";?>>SHOOTER</option>
+                                             </select>
+                                         </div>
+                                         <button type="submit" name="editarJuego" value='<?php echo $fila["id_juego"];?>' class="btn btn-primary">Submit</button>
+                                      </form>
+                                    <?php
+                                }
                 
+                        }
+                        else
+                        {
+                            $error="Imposible realizar la consulta. Error número: ".mysqli_errno($conex). ":".mysqli_error($conex);
+                            mysqli_close($conex);
+                            die($error);	
+                        }	
+                  
+                }elseif(isset($_GET["delete"]))
+                {
+                    ?> 
+                     <form style="margin:8em; width:30em;" action="index.php" method="POST">
+                                         <div class="form-group">
+                                             <label for="titulo">¿Estás seguro que desea eliminar el juego con ID <strong> <?php echo $_GET["delete"];?></strong>?</label>     
+                                         </div>
+                                         <div class="form-group">
+                                            <button type="submit" name="borrarJuego" value='<?php echo $_GET["delete"];?>' class="btn btn-primary">Submit</button>
+                                        </div>
+                    </form>
+                    <?php
+                }
                 ?>
                
         <!-- Bootstrap core JS-->
