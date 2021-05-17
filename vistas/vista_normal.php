@@ -25,6 +25,7 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
+                        <li class="nav-item active"><a class="nav-link" href=""> <strong><?php echo $datos_usu["usuario"];?></strong></a></li>
                         <li class="nav-item"><a class="nav-link" href="admin/cerrar_sesion.php">Cerrar Sesión</a></li>
                     </ul>
                 </div>
