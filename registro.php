@@ -20,7 +20,7 @@
 
 
 		$error_user=($usuario=="" || repetido_n("usuario",$usuario,$conexion) || !control_usuario($usuario));
-		$error_pass=($pass=="" || !control_usuario($pass));
+		$error_pass=($pass=="" || !control_usuario($pass) || strlen($pass) < 6);
 		$error_name=($name=="" || !control_usuario($name));
 		$error_mail= ($mail=="" || repetido_n("email",$mail,$conexion));
 
@@ -58,7 +58,9 @@
 			if($usuario == "" || $pass == "" || $name == "" || $mail == "")
 				header("Location: vistas/vista_registro.php?error=camposVacios"); 
 			if(repetido_n("usuario",$usuario,$conexion) || repetido_n("email",$mail,$conexion))
-				header("Location: vistas/vista_registro.php?error=repetido"); 
+				header("Location: vistas/vista_registro.php?error=repetido");
+			if(strlen($pass) < 6)
+				header("Location: vistas/vista_registro.php?error=pequeño");
            
         }
 	

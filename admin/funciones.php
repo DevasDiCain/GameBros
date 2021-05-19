@@ -180,14 +180,14 @@
 				{
 					case 'restringido':error_log("Accediendo a una zona restringida");
 							?> 
-							<div class="alert alert-danger" >
+							<div class="alert alert-danger" style="margin-left:10em" >
 								<strong>¡Error!</strong>Zona restringida <strong>¡Error!</strong>
 							</div>	
 							<?php
 						break;
 					case 'malUsuario': error_log("Login erróneo");
 							?> 
-							<div class="alert alert-danger" >
+							<div class="alert alert-danger" style="margin-left:10em">
 								<strong>¡Error!</strong>Usuario o contraseña inválidos <strong>¡Error!</strong>
 							</div>	
 							<?php
@@ -198,56 +198,63 @@
 						break;
 					case 'tiempo': error_log("Sesión caducada");
 								?> 
-								<div class="alert alert-danger" >
+								<div class="alert alert-danger" style="margin-left:10em">
 									<strong>¡Error!</strong>Sesión Caducada <strong>¡Error!</strong>
 								</div>	
 								<?php
 						break;
 					case 'moverImagen': error_log("Error al mover la imagen a la carpeta destino");
 								?> 
-								<div class="alert alert-danger" >
+								<div class="alert alert-danger" style="margin-left:10em">
 									<strong>¡Error!</strong>Error al mover la imagen a la carpeta destino <strong>¡Error!</strong>
 								</div>	
 								<?php
 						break;
 					case 'roboCookie':error_log("Intento de robo de cookie");
 								?> 
-								<div class="alert alert-danger" >
+								<div class="alert alert-danger" style="margin-left:10em" >
 									<strong>¡Error!</strong>Intento de robo de cookie <strong>¡Error!</strong>
 								</div>	
 								<?php
 						break;
 					case 'cookie_expirada':error_log("La cookie ha expirado");
 								?> 
-								<div class="alert alert-danger" >
+								<div class="alert alert-danger" style="margin-left:10em">
 									<strong>¡Error!</strong>Tu cookie ha expirado <strong>¡Error!</strong>
 								</div>	
 								<?php
 						break;
 					case 'contrasenaEnviada':error_log("Recuperación de contrasenia inválido");
 								?> 
-								<div class="alert alert-danger" >
+								<div class="alert alert-danger" style="margin-left:10em" >
 									<strong>¡Error!</strong>Tu contraseña ha sido enviada<strong>¡Error!</strong>
 								</div>	
 								<?php
 						break;
 					case 'camposVacios': error_log("Campos vacíos registro");
 							?> 
-							<div class="alert alert-danger" >
+							<div class="alert alert-danger" style="margin-left:10em" >
 								<strong>¡Error!</strong>No puede haber campos vacíos <strong>¡Error!</strong>
 							</div>	
 							<?php
 						break;
 					case 'repetido': error_log("Campos vacíos registro");
 							?> 
-							<div class="alert alert-danger" >
+							<div class="alert alert-danger" style="margin-left:10em" >
 								<strong>¡Error!</strong>Este usuario o email ya se encuentra en la base de datos <strong>¡Error!</strong>
+							</div>	
+							<?php
+						break;
+					case 'pequeño': 
+							?> 
+							<div class="alert alert-danger" style="margin-left:10em" >
+								<strong>¡Error!</strong>La contraseña debe de tener una longitud superior a 6 caracteres <strong>¡Error!</strong>
 							</div>	
 							<?php
 						break;
 					case 'negativo':
 						?> 
-						<div class="alert alert-danger" >
+						<div class="alert alert-danger" style="margin-left:10em" >
 							<strong>¡Error!</strong>El precio no puede ser negativo <strong>¡Error!</strong>
 						</div>	
 						<?php

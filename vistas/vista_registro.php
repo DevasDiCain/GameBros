@@ -39,14 +39,14 @@ require_once("../admin/funciones.php");
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" name="usuario" class="form-control" placeholder="Usuario">
+						<input type="text" name="usuario"  required class="form-control" placeholder="Usuario">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" name="contrasenia" class="form-control" placeholder="Contraseña">
+						<input type="password" required name="contrasenia" class="form-control" placeholder="Contraseña">
 					</div>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -59,7 +59,7 @@ require_once("../admin/funciones.php");
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-envelope"></i></span>
 						</div>
-						<input type="text" name="mail" class="form-control" placeholder="Correo Electrónico">
+						<input type="email"  required name="mail" class="form-control" placeholder="Correo Electrónico">
 						
 					</div>
 				<div class="form-group">
