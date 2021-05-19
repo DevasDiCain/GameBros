@@ -66,9 +66,11 @@ require_once("../admin/funciones.php");
                			 <input type="submit" name="btnAceptarRegistro" value="Entrar" class="btn float-right login_btn">
 				</div>
 
-				<div class="form-group" >
-						<input type="submit" value="Volver" name="btnvolver" class="btn float-left login_btn" >
-				</div>
+				</form>
+				<form action="../index.php" method="POST">
+					<div class="form-group" >
+							<input type="submit" value="Volver" name="btnvolver" class="btn float-left login_btn" >
+					</div>
 				</form>
 			</div>
 			

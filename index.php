@@ -239,9 +239,7 @@ if(isset($_SESSION["error"]))
 				<div class="d-flex justify-content-center links">
 					¿No tienes aún cuenta?<a href="vistas/vista_registro.php">Registrate</a>
 				</div>
-				<div class="d-flex justify-content-center">
-					<a href="#">¿Olvidaste tu contraseña?</a>
-				</div>
+				
 			</div>
 		</div>
 	</div>
